@@ -75,7 +75,7 @@ const Servicos = () => {
           <p>Nossa equipe está pronta para entender suas necessidades e oferecer a melhor solução</p>
           <button 
             className="btn btn-primary"
-            onClick={() => window.open('https://wa.me/5534972497281', '_blank')}
+            onClick={() => window.open('https://wa.me/553497249781', '_blank')}
           >
             Fale com um Especialista
           </button>

@@ -31,7 +31,7 @@ const Footer = () => {
                 Soluções inteligentes para o sucesso do seu negócio.
               </p>
               <div className="footer-social">
-                <a href="https://wa.me/5534972497281" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                <a href="https://wa.me/553497249781" target="_blank" rel="noopener noreferrer" title="WhatsApp">
                   <FaWhatsapp />
                 </a>
                 <a href="mailto:baycontassessoria@gmail.com" title="Email">

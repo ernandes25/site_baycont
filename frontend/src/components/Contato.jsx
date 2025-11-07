@@ -71,7 +71,7 @@ const Contato = () => {
                 <FaWhatsapp />
                 <div>
                   <h4>WhatsApp</h4>
-                  <a href="https://wa.me/5534972497281" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/553497249781" target="_blank" rel="noopener noreferrer">
                     (34) 9724-9781
                   </a>
                 </div>

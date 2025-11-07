@@ -33,7 +33,7 @@ const Hero = () => {
           <button className="btn btn-primary" onClick={scrollToContato}>
             Fale Conosco
           </button>
-          <button className="btn btn-secondary" onClick={() => window.open('https://wa.me/5534972497281', '_blank')}>
+          <button className="btn btn-secondary" onClick={() => window.open('https://wa.me/553497249781', '_blank')}>
             WhatsApp
           </button>
         </div>
