@@ -91,8 +91,8 @@ const Contato = () => {
                 <FaInstagram />
                 <div>
                   <h4>Instagram</h4>
-                  <a href="https://instagram.com/baytonassessoria" target="_blank" rel="noopener noreferrer">
-                    @baytonassessoria
+                  <a href="https://www.instagram.com/baycontassessoria?igsh=NzRxNWtnOXltdXBv" target="_blank" rel="noopener noreferrer">
+                    @baycontassessoria
                   </a>
                 </div>
               </div>

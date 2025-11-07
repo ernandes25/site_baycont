@@ -37,7 +37,7 @@ const Footer = () => {
                 <a href="mailto:baycontassessoria@gmail.com" title="Email">
                   <FaEnvelope />
                 </a>
-                <a href="https://instagram.com/baytonassessoria" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <a href="https://www.instagram.com/baycontassessoria?igsh=NzRxNWtnOXltdXBv" target="_blank" rel="noopener noreferrer" title="Instagram">
                   <FaInstagram />
                 </a>
               </div>

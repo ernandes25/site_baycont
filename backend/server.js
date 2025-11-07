@@ -63,9 +63,16 @@ app.post('/api/contato', async (req, res) => {
     });
   } catch (error) {
     console.error('Erro ao enviar email:', error);
+    console.error('Detalhes do erro:', {
+      code: error.code,
+      command: error.command,
+      response: error.response,
+      responseCode: error.responseCode
+    });
     res.status(500).json({ 
       success: false, 
-      message: 'Erro ao enviar mensagem. Tente novamente mais tarde.' 
+      message: 'Erro ao enviar mensagem. Tente novamente mais tarde.',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 });
