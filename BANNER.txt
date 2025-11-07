@@ -1,0 +1,86 @@
+
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║   ██████╗  █████╗ ██╗   ██╗ ██████╗ ██████╗ ███╗   ██╗████████╗   ║
+║   ██╔══██╗██╔══██╗╚██╗ ██╔╝██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝   ║
+║   ██████╔╝███████║ ╚████╔╝ ██║     ██║   ██║██╔██╗ ██║   ██║      ║
+║   ██╔══██╗██╔══██║  ╚██╔╝  ██║     ██║   ██║██║╚██╗██║   ██║      ║
+║   ██████╔╝██║  ██║   ██║   ╚██████╗╚██████╔╝██║ ╚████║   ██║      ║
+║   ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝      ║
+║                                                                      ║
+║              Contabilidade Digital e Assessoria Empresarial         ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+                    🚀 Landing Page Profissional 🚀
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📦 TECNOLOGIAS:
+   ├─ React 18
+   ├─ Node.js + Express
+   ├─ Vite
+   └─ Nodemailer
+
+🎨 DESIGN:
+   ├─ Responsivo (Mobile, Tablet, Desktop)
+   ├─ Paleta de cores profissional
+   ├─ Animações suaves
+   └─ UI/UX moderna
+
+✨ FUNCIONALIDADES:
+   ├─ Header com menu fixo
+   ├─ Navegação smooth scroll
+   ├─ Seção Quem Somos (Valores, Missão, Visão)
+   ├─ 6 Serviços detalhados
+   ├─ Carrossel de notícias automático
+   ├─ Links úteis empresariais
+   ├─ Formulário de contato funcional
+   └─ Footer completo
+
+📱 CONTATO:
+   ├─ WhatsApp: (34) 9724-9781
+   ├─ Email: baycontassessoria@gmail.com
+   ├─ Instagram: @baytonassessoria
+   ├─ Localização: Uberlândia - MG
+   └─ Domínio: www.baycont.com.br
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 INÍCIO RÁPIDO:
+
+   Linux/Mac:              Windows:              Manual:
+   ./start.sh             start.bat             npm run dev
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTAÇÃO:
+
+   INDEX.md              → 📂 Índice completo da documentação
+   README.md             → 📖 Visão geral do projeto
+   SETUP.md              → ⚙️  Guia de instalação e configuração
+   DEPLOY.md             → 🌐 Como publicar o site online
+   RESUMO.md             → 📋 Resumo executivo do projeto
+   TROUBLESHOOTING.md    → 🆘 Solução de problemas
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 ACESSE:
+
+   Frontend:  http://localhost:3000
+   Backend:   http://localhost:5000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💻 Desenvolvido com ❤️  por Baysoftware Brasil
+   Uberlândia - MG | Outubro 2025
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ PROJETO COMPLETO E PRONTO PARA USO!
+
+   Status: ✅ Desenvolvimento Concluído
+   Versão: 1.0.0
+   Licença: MIT
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
