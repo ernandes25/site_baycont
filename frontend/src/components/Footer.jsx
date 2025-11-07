@@ -92,10 +92,13 @@ const Footer = () => {
               &copy; {currentYear} Baycont - Contabilidade Digital e Assessoria Empresarial. 
               Todos os direitos reservados.
             </p>
-            <p className="developed-by">
-              Desenvolvido com <FaHeart className="heart-icon" /> por{' '}
-              <strong>Baysoftware Brasil</strong> - Uberlândia, MG
-            </p>
+            <div className="developed-by">
+              <p>
+                Desenvolvido com <FaHeart className="heart-icon" /> por{' '}
+                <strong>Baysoftware Brasil</strong> - Uberlândia, MG
+              </p>
+              <img src="/assets/logo-baysoft.webp" alt="Baysoftware" className="baysoft-logo" />
+            </div>
           </div>
         </div>
       </div>

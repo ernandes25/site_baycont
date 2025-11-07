@@ -8,6 +8,7 @@
   --primary-color: #1e3a8a;
   --secondary-color: #3b82f6;
   --accent-color: #60a5fa;
+  --light-accent: #dbeafe;
   --dark-color: #1e293b;
   --light-color: #f1f5f9;
   --white: #ffffff;
@@ -19,7 +20,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
-  background-color: var(--white);
+  background: #f8fafc;
+  min-height: 100vh;
 }
 
 html {
