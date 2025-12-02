@@ -62,7 +62,7 @@ const QuemSomos = () => {
                   </p>
                 </div>
                 <div className="content-image">
-                  <img src="/assets/QUEM SOMOS.png" alt="Quem Somos" />
+                  <img src="/assets/quem-somos.png" alt="Quem Somos" />
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@ const QuemSomos = () => {
             <div id="valores" className="content-card fade-in">
               <div className="content-grid">
                 <div className="content-image">
-                  <img src="/assets/VALORES.png" alt="Nossos Valores" />
+                  <img src="/assets/valores.png" alt="Nossos Valores" />
                 </div>
                 <div className="content-text">
                   <h3>Nossos Valores</h3>
@@ -120,7 +120,7 @@ const QuemSomos = () => {
                   </p>
                 </div>
                 <div className="content-image">
-                  <img src="/assets/MISSÃO.png" alt="Nossa Missão" />
+                  <img src="/assets/missao.png" alt="Nossa Missão" />
                 </div>
               </div>
             </div>
@@ -130,7 +130,7 @@ const QuemSomos = () => {
             <div id="visao" className="content-card fade-in">
               <div className="content-grid">
                 <div className="content-image">
-                  <img src="/assets/VISAO.png" alt="Nossa Visão" />
+                  <img src="/assets/visao.png" alt="Nossa Visão" />
                 </div>
                 <div className="content-text">
                   <h3>Nossa Visão</h3>

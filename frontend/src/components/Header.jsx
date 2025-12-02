@@ -39,7 +39,7 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <div className="logo">
-          <img src="/assets/Logo 1.png" alt="Baycont Logo" />
+          <img src="/assets/logo-baycont.png" alt="Baycont Logo" />
         </div>
 
         <button 

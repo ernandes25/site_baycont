@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaPaperPlane } from 'react-icons/fa'
 import './Contato.css'
 
@@ -20,34 +19,41 @@ const Contato = () => {
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setIsLoading(true)
-    setStatus({ type: '', message: '' })
 
-    try {
-      const response = await axios.post('/api/contato', formData)
+    // Criar mensagem formatada para WhatsApp
+    const mensagemWhatsApp = `*Nova mensagem do site Baycont*%0A%0A` +
+      `*Nome:* ${formData.nome}%0A` +
+      `*E-mail:* ${formData.email}%0A` +
+      `*Telefone:* ${formData.telefone || 'Não informado'}%0A%0A` +
+      `*Mensagem:*%0A${formData.mensagem}`
+
+    // Número do WhatsApp (34 9724-9781)
+    const numeroWhatsApp = '553497249781'
+    
+    // Abrir WhatsApp com a mensagem
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemWhatsApp}`
+    
+    // Aguardar um pouco para dar feedback visual
+    setTimeout(() => {
+      window.open(urlWhatsApp, '_blank')
       
-      if (response.data.success) {
-        setStatus({
-          type: 'success',
-          message: response.data.message
-        })
-        setFormData({
-          nome: '',
-          email: '',
-          telefone: '',
-          mensagem: ''
-        })
-      }
-    } catch (error) {
       setStatus({
-        type: 'error',
-        message: error.response?.data?.message || 'Erro ao enviar mensagem. Tente novamente.'
+        type: 'success',
+        message: 'Redirecionando para o WhatsApp... Se não abrir automaticamente, clique no link acima!'
       })
-    } finally {
+      
+      setFormData({
+        nome: '',
+        email: '',
+        telefone: '',
+        mensagem: ''
+      })
+      
       setIsLoading(false)
-    }
+    }, 500)
   }
 
   return (

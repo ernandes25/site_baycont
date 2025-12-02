@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-section">
-              <img src="/assets/Logo 1.png" alt="Baycont Logo" className="footer-logo" />
+              <img src="/assets/logo-baycont.png" alt="Baycont Logo" className="footer-logo" />
               <h3>Baycont</h3>
               <p className="footer-description">
                 Contabilidade Digital e Assessoria Empresarial. 
