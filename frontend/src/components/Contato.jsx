@@ -1,196 +1,81 @@
 import React, { useState } from 'react'
-import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaPaperPlane } from 'react-icons/fa'
-import './Contato.css'
+import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaClock, FaPaperPlane } from 'react-icons/fa'
+import { TELEFONE, WHATSAPP, EMAIL, INSTAGRAM, INSTAGRAM_NOME, CIDADE, whatsappCom } from '../dados'
+
+const VAZIO = { nome: '', telefone: '', mensagem: '' }
 
 const Contato = () => {
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    telefone: '',
-    mensagem: ''
-  })
-  const [status, setStatus] = useState({ type: '', message: '' })
-  const [isLoading, setIsLoading] = useState(false)
+  const [dados, setDados] = useState(VAZIO)
+  const [enviado, setEnviado] = useState(false)
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+  const mudar = (evento) => setDados({ ...dados, [evento.target.name]: evento.target.value })
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-
-    // Criar mensagem formatada para WhatsApp
-    const mensagemWhatsApp = `*Nova mensagem do site Baycont*%0A%0A` +
-      `*Nome:* ${formData.nome}%0A` +
-      `*E-mail:* ${formData.email}%0A` +
-      `*Telefone:* ${formData.telefone || 'Não informado'}%0A%0A` +
-      `*Mensagem:*%0A${formData.mensagem}`
-
-    // Número do WhatsApp (34 9724-9781)
-    const numeroWhatsApp = '553497249781'
-    
-    // Abrir WhatsApp com a mensagem
-    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemWhatsApp}`
-    
-    // Aguardar um pouco para dar feedback visual
-    setTimeout(() => {
-      window.open(urlWhatsApp, '_blank')
-      
-      setStatus({
-        type: 'success',
-        message: 'Redirecionando para o WhatsApp... Se não abrir automaticamente, clique no link acima!'
-      })
-      
-      setFormData({
-        nome: '',
-        email: '',
-        telefone: '',
-        mensagem: ''
-      })
-      
-      setIsLoading(false)
-    }, 500)
+  // O formulário não grava nada: monta a mensagem e abre o WhatsApp da Baycont.
+  const enviar = (evento) => {
+    evento.preventDefault()
+    const texto = [
+      'Olá! Vim pelo site da Baycont.',
+      `Nome: ${dados.nome}`,
+      dados.telefone ? `Telefone: ${dados.telefone}` : '',
+      '',
+      dados.mensagem,
+    ].filter((linha, indice) => linha !== '' || indice === 3).join('\n')
+    window.open(whatsappCom(texto), '_blank', 'noopener')
+    setEnviado(true)
+    setDados(VAZIO)
   }
 
   return (
-    <section id="contato" className="section contato">
+    <section id="contato" className="secao">
       <div className="container">
-        <h2 className="section-title">Entre em Contato</h2>
-        <p className="section-subtitle">
-          Estamos prontos para atender você e sua empresa
-        </p>
+        <div className="secao-cabecalho">
+          <p className="sobretitulo">Contato</p>
+          <h2>Fale com a Baycont</h2>
+          <p>Estamos prontos para atender você e a sua empresa.</p>
+        </div>
 
-        <div className="contato-wrapper">
-          <div className="contato-info">
-            <h3>Fale Conosco</h3>
-            <p>
-              Nossa equipe está pronta para ajudar você com as melhores soluções contábeis.
-              Entre em contato através dos nossos canais de atendimento.
-            </p>
-
-            <div className="info-items">
-              <div className="info-item">
-                <FaWhatsapp />
-                <div>
-                  <h4>WhatsApp</h4>
-                  <a href="https://wa.me/553497249781" target="_blank" rel="noopener noreferrer">
-                    (34) 9724-9781
-                  </a>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <FaEnvelope />
-                <div>
-                  <h4>E-mail</h4>
-                  <a href="mailto:baycontassessoria@gmail.com">
-                    baycontassessoria@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <FaInstagram />
-                <div>
-                  <h4>Instagram</h4>
-                  <a href="https://www.instagram.com/baycontassessoria?igsh=NzRxNWtnOXltdXBv" target="_blank" rel="noopener noreferrer">
-                    @baycontassessoria
-                  </a>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <FaMapMarkerAlt />
-                <div>
-                  <h4>Localização</h4>
-                  <p>Uberlândia - MG</p>
-                </div>
-              </div>
+        <div className="contato-grade">
+          <div className="contato-canais">
+            <a className="canal canal-destaque" href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+              <span className="icone-caixa"><FaWhatsapp /></span>
+              <span><small>WhatsApp</small><strong>{TELEFONE}</strong></span>
+            </a>
+            <a className="canal" href={`mailto:${EMAIL}`}>
+              <span className="icone-caixa"><FaEnvelope /></span>
+              <span><small>E-mail</small><strong>{EMAIL}</strong></span>
+            </a>
+            <a className="canal" href={INSTAGRAM} target="_blank" rel="noopener noreferrer">
+              <span className="icone-caixa"><FaInstagram /></span>
+              <span><small>Instagram</small><strong>{INSTAGRAM_NOME}</strong></span>
+            </a>
+            <div className="canal">
+              <span className="icone-caixa"><FaMapMarkerAlt /></span>
+              <span><small>Localização</small><strong>{CIDADE}</strong></span>
             </div>
-
-            <div className="horario-atendimento">
-              <h4>Horário de Atendimento</h4>
-              <p>Segunda a Sexta: 8h às 18h</p>
-              <p>Sábado: 8h às 12h</p>
+            <div className="canal">
+              <span className="icone-caixa"><FaClock /></span>
+              <span><small>Horário de atendimento</small><strong>Segunda a sexta, das 8h às 18h · Sábado, das 8h às 12h</strong></span>
             </div>
           </div>
 
-          <div className="contato-form-wrapper">
-            <form className="contato-form" onSubmit={handleSubmit}>
-              <h3>Envie sua Mensagem</h3>
-              
-              <div className="form-group">
-                <label htmlFor="nome">Nome Completo *</label>
-                <input
-                  type="text"
-                  id="nome"
-                  name="nome"
-                  value={formData.nome}
-                  onChange={handleChange}
-                  required
-                  placeholder="Seu nome"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="email">E-mail *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="seu@email.com"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="telefone">Telefone</label>
-                <input
-                  type="tel"
-                  id="telefone"
-                  name="telefone"
-                  value={formData.telefone}
-                  onChange={handleChange}
-                  placeholder="(00) 00000-0000"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="mensagem">Mensagem *</label>
-                <textarea
-                  id="mensagem"
-                  name="mensagem"
-                  value={formData.mensagem}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                  placeholder="Como podemos ajudar?"
-                ></textarea>
-              </div>
-
-              {status.message && (
-                <div className={`form-status ${status.type}`}>
-                  {status.message}
-                </div>
-              )}
-
-              <button type="submit" className="btn-submit" disabled={isLoading}>
-                {isLoading ? (
-                  'Enviando...'
-                ) : (
-                  <>
-                    <FaPaperPlane /> Enviar Mensagem
-                  </>
-                )}
-              </button>
-            </form>
-          </div>
+          <form className="cartao formulario" onSubmit={enviar}>
+            <h3>Envie sua mensagem</h3>
+            <p className="formulario-ajuda">Ao enviar, abrimos o WhatsApp com a sua mensagem pronta.</p>
+            <label>
+              Nome *
+              <input name="nome" value={dados.nome} onChange={mudar} required placeholder="Seu nome" autoComplete="name" />
+            </label>
+            <label>
+              Telefone
+              <input name="telefone" value={dados.telefone} onChange={mudar} placeholder="(00) 00000-0000" autoComplete="tel" type="tel" />
+            </label>
+            <label>
+              Mensagem *
+              <textarea name="mensagem" value={dados.mensagem} onChange={mudar} required rows="4" placeholder="Como podemos ajudar?" />
+            </label>
+            {enviado && <p className="formulario-ok" role="status">Abrimos o WhatsApp com a sua mensagem. Se não abriu, toque no número ao lado.</p>}
+            <button type="submit" className="botao botao-principal"><FaPaperPlane /> Enviar pelo WhatsApp</button>
+          </form>
         </div>
       </div>
     </section>

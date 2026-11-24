@@ -1,60 +1,49 @@
 import React from 'react'
-import { FaChartLine, FaHandshake, FaLightbulb } from 'react-icons/fa'
-import './Hero.css'
+import { FaWhatsapp, FaCheckCircle, FaArrowRight } from 'react-icons/fa'
+import { whatsappCom, CIDADE } from '../dados'
 
-const Hero = () => {
-  const scrollToContato = () => {
-    const element = document.getElementById('contato')
-    if (element) {
-      const offset = 80
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - offset
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-  }
+const PONTOS = [
+  'Atendimento personalizado, de pessoa para pessoa',
+  'Contabilidade 100% digital, sem papelada',
+  'Gestão fiscal, contábil e de pessoal em um só lugar',
+  `Sede em ${CIDADE}`,
+]
 
-  return (
-    <section className="hero">
-      <div className="hero-overlay"></div>
-      <div className="hero-content">
-        <h1 className="hero-title">Baycont</h1>
-        <h2 className="hero-subtitle">Bayton Assessoria</h2>
-        <p className="hero-description">
-          Contabilidade Digital e Assessoria Empresarial
+const Hero = () => (
+  <section id="inicio" className="abertura">
+    <div className="container abertura-grade">
+      <div className="abertura-texto">
+        <p className="sobretitulo">Contabilidade Digital e Assessoria Empresarial</p>
+        <h1>Baycont Assessoria</h1>
+        <p className="abertura-chamada">
+          Soluções contábeis inteligentes para impulsionar o seu negócio. Tecnologia, experiência e
+          atendimento personalizado para o sucesso da sua empresa.
         </p>
-        <p className="hero-text">
-          Soluções contábeis inteligentes para impulsionar seu negócio. 
-          Tecnologia, experiência e atendimento personalizado para o sucesso da sua empresa.
-        </p>
-        <div className="hero-buttons">
-          <button className="btn btn-primary" onClick={scrollToContato}>
-            Fale Conosco
-          </button>
-          <button className="btn btn-secondary" onClick={() => window.open('https://wa.me/553497249781', '_blank')}>
-            WhatsApp
-          </button>
-        </div>
-
-        <div className="hero-features">
-          <div className="feature-item">
-            <FaChartLine />
-            <span>Gestão Eficiente</span>
-          </div>
-          <div className="feature-item">
-            <FaHandshake />
-            <span>Atendimento Personalizado</span>
-          </div>
-          <div className="feature-item">
-            <FaLightbulb />
-            <span>Soluções Inovadoras</span>
-          </div>
+        <div className="abertura-botoes">
+          <a
+            className="botao botao-principal"
+            href={whatsappCom('Olá! Vim pelo site e gostaria de falar com a Baycont.')}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaWhatsapp /> Falar no WhatsApp
+          </a>
+          <a className="botao botao-contorno" href="#servicos">
+            Conheça os serviços <FaArrowRight />
+          </a>
         </div>
       </div>
-    </section>
-  )
-}
+
+      <div className="abertura-cartao">
+        <img src="/assets/logo-baycont-transparente.png" alt="Baycont" className="abertura-logo" width="240" height="141" />
+        <ul>
+          {PONTOS.map((ponto) => (
+            <li key={ponto}><FaCheckCircle /> {ponto}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+)
 
 export default Hero

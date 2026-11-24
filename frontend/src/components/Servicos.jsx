@@ -1,88 +1,75 @@
 import React from 'react'
-import { FaBuilding, FaFileAlt, FaLaptop, FaChartLine, FaFileInvoiceDollar, FaUsers } from 'react-icons/fa'
-import './Servicos.css'
+import { FaBuilding, FaFileSignature, FaLaptop, FaChartLine, FaFileInvoiceDollar, FaUsers, FaWhatsapp } from 'react-icons/fa'
+import { whatsappCom } from '../dados'
 
-const Servicos = () => {
-  const servicos = [
-    {
-      icon: <FaBuilding />,
-      title: 'Abertura de Empresa',
-      description: 'Auxiliamos todo o processo de abertura da sua empresa, desde a escolha do tipo jurídico até o registro nos órgãos competentes. Cuidamos de toda a burocracia para você começar seu negócio com segurança e agilidade.'
-    },
-    {
-      icon: <FaFileAlt />,
-      title: 'Alteração Contratual',
-      description: 'Realizamos todas as alterações contratuais necessárias para sua empresa, incluindo mudança de endereço, inclusão ou exclusão de sócios, alteração de capital social e outras modificações com total conformidade legal.'
-    },
-    {
-      icon: <FaLaptop />,
-      title: 'Assessoria Contábil Digital Mensal',
-      description: 'Contabilidade completa 100% digital com acesso online a relatórios gerenciais, demonstrativos contábeis e acompanhamento em tempo real. Tecnologia e praticidade para sua gestão financeira.'
-    },
-    {
-      icon: <FaChartLine />,
-      title: 'Assessoria Empresarial',
-      description: 'Consultoria estratégica para tomada de decisões, análise de viabilidade de projetos, planejamento tributário, redução de custos e orientações para o crescimento sustentável do seu negócio.'
-    },
-    {
-      icon: <FaFileInvoiceDollar />,
-      title: 'Escrita Fiscal',
-      description: 'Processamento de notas fiscais, apuração de impostos (ICMS, ISS, PIS, COFINS, IPI), entrega de obrigações acessórias (SPED Fiscal, SPED Contribuições) e toda gestão fiscal da sua empresa.'
-    },
-    {
-      icon: <FaUsers />,
-      title: 'Departamento Pessoal',
-      description: 'Gestão completa de folha de pagamento, admissão e demissão de funcionários, férias, 13º salário, encargos sociais, eSocial, FGTS e todas as obrigações trabalhistas com pontualidade e precisão.'
-    }
-  ]
+const SERVICOS = [
+  {
+    icone: <FaBuilding />,
+    titulo: 'Abertura de empresa',
+    texto: 'Cuidamos de todo o processo, da escolha do tipo jurídico ao registro nos órgãos competentes, para você começar com segurança e agilidade.',
+  },
+  {
+    icone: <FaFileSignature />,
+    titulo: 'Alteração contratual',
+    texto: 'Mudança de endereço, entrada ou saída de sócios, alteração de capital social e demais mudanças, com total conformidade legal.',
+  },
+  {
+    icone: <FaLaptop />,
+    titulo: 'Contabilidade digital mensal',
+    texto: 'Contabilidade completa e 100% digital, com acesso online a relatórios gerenciais e demonstrativos contábeis.',
+  },
+  {
+    icone: <FaChartLine />,
+    titulo: 'Assessoria empresarial',
+    texto: 'Apoio às decisões, análise de viabilidade, planejamento tributário e redução de custos para o crescimento sustentável.',
+  },
+  {
+    icone: <FaFileInvoiceDollar />,
+    titulo: 'Escrita fiscal',
+    texto: 'Notas fiscais, apuração de impostos (ICMS, ISS, PIS, COFINS, IPI) e entrega das obrigações acessórias, como SPED Fiscal e Contribuições.',
+  },
+  {
+    icone: <FaUsers />,
+    titulo: 'Departamento pessoal',
+    texto: 'Folha de pagamento, admissões e demissões, férias, 13º salário, eSocial, FGTS e todas as obrigações trabalhistas em dia.',
+  },
+]
 
-  return (
-    <section id="servicos" className="section servicos">
-      <div className="container">
-        <h2 className="section-title">Nossos Serviços</h2>
-        <p className="section-subtitle">
-          Soluções completas em contabilidade e assessoria empresarial para o seu negócio
-        </p>
-
-        <div className="servicos-grid">
-          {servicos.map((servico, index) => (
-            <div key={index} className="servico-card">
-              <div className="servico-icon">
-                {servico.icon}
-              </div>
-              <h3>{servico.title}</h3>
-              <p>{servico.description}</p>
-              <button 
-                className="btn-saiba-mais"
-                onClick={() => {
-                  const element = document.getElementById('contato')
-                  if (element) {
-                    const offset = 80
-                    const elementPosition = element.getBoundingClientRect().top
-                    const offsetPosition = elementPosition + window.pageYOffset - offset
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
-                  }
-                }}
-              >
-                Saiba Mais
-              </button>
-            </div>
-          ))}
-        </div>
-
-        <div className="servicos-cta">
-          <h3>Precisa de ajuda para escolher o serviço ideal?</h3>
-          <p>Nossa equipe está pronta para entender suas necessidades e oferecer a melhor solução</p>
-          <button 
-            className="btn btn-primary"
-            onClick={() => window.open('https://wa.me/553497249781', '_blank')}
-          >
-            Fale com um Especialista
-          </button>
-        </div>
+const Servicos = () => (
+  <section id="servicos" className="secao secao-clara">
+    <div className="container">
+      <div className="secao-cabecalho">
+        <p className="sobretitulo">Serviços</p>
+        <h2>Tudo o que a sua empresa precisa</h2>
+        <p>Soluções completas em contabilidade e assessoria empresarial, em um só lugar.</p>
       </div>
-    </section>
-  )
-}
+
+      <div className="grade-3">
+        {SERVICOS.map((servico) => (
+          <article key={servico.titulo} className="cartao cartao-servico">
+            <span className="icone-caixa">{servico.icone}</span>
+            <h3>{servico.titulo}</h3>
+            <p>{servico.texto}</p>
+          </article>
+        ))}
+      </div>
+
+      <div className="faixa-chamada">
+        <div>
+          <h3>Precisa de ajuda para escolher o serviço ideal?</h3>
+          <p>Conte o que a sua empresa precisa e indicamos a melhor solução.</p>
+        </div>
+        <a
+          className="botao botao-claro"
+          href={whatsappCom('Olá! Gostaria de ajuda para escolher um serviço da Baycont.')}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaWhatsapp /> Falar com um especialista
+        </a>
+      </div>
+    </div>
+  </section>
+)
 
 export default Servicos

@@ -1,98 +1,59 @@
 import React, { useState, useEffect } from 'react'
 import { FaWhatsapp, FaEnvelope, FaInstagram, FaBars, FaTimes } from 'react-icons/fa'
-import './Header.css'
+import { WHATSAPP, EMAIL, INSTAGRAM, AREA_DO_CLIENTE } from '../dados'
+
+const LINKS = [
+  { href: '#quem-somos', texto: 'Quem somos' },
+  { href: '#servicos', texto: 'Serviços' },
+  { href: '#diferenciais', texto: 'Diferenciais' },
+  { href: '#links-uteis', texto: 'Links úteis' },
+  { href: '#contato', texto: 'Contato' },
+]
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeSubmenu, setActiveSubmenu] = useState(null)
+  const [rolou, setRolou] = useState(false)
+  const [menuAberto, setMenuAberto] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const aoRolar = () => setRolou(window.scrollY > 10)
+    window.addEventListener('scroll', aoRolar)
+    return () => window.removeEventListener('scroll', aoRolar)
   }, [])
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      const offset = 80
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - offset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-    setIsMobileMenuOpen(false)
-    setActiveSubmenu(null)
-  }
-
-  const toggleSubmenu = (menu) => {
-    setActiveSubmenu(activeSubmenu === menu ? null : menu)
-  }
-
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="header-container">
-        <div className="logo">
-          <img src="/assets/logo-baycont.png" alt="Baycont Logo" />
-        </div>
+    <header className={`topo ${rolou ? 'topo-rolou' : ''}`}>
+      <div className="container topo-linha">
+        <a href="#inicio" className="marca" aria-label="Baycont - início">
+          <img src="/assets/logo-mark.png" alt="" width="34" height="41" />
+          <span>
+            <strong>BAYCONT</strong>
+            <small>Contabilidade Digital</small>
+          </span>
+        </a>
 
-        <button 
-          className="mobile-menu-btn"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        <button
+          className="menu-botao"
+          aria-label={menuAberto ? 'Fechar o menu' : 'Abrir o menu'}
+          aria-expanded={menuAberto}
+          onClick={() => setMenuAberto(!menuAberto)}
         >
-          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          {menuAberto ? <FaTimes /> : <FaBars />}
         </button>
 
-        <nav className={`nav ${isMobileMenuOpen ? 'active' : ''}`}>
-          <ul className="nav-list">
-            <li className="nav-item has-submenu">
-              <button onClick={() => toggleSubmenu('quemsomos')}>
-                Quem Somos
-              </button>
-              {activeSubmenu === 'quemsomos' && (
-                <ul className="submenu">
-                  <li onClick={() => scrollToSection('quem-somos')}>Sobre Nós</li>
-                  <li onClick={() => scrollToSection('valores')}>Valores</li>
-                  <li onClick={() => scrollToSection('missao')}>Missão</li>
-                  <li onClick={() => scrollToSection('visao')}>Visão</li>
-                </ul>
-              )}
-            </li>
-            <li className="nav-item" onClick={() => scrollToSection('servicos')}>
-              <span>Serviços</span>
-            </li>
-            <li className="nav-item" onClick={() => scrollToSection('noticias')}>
-              <span>Notícias</span>
-            </li>
-            <li className="nav-item" onClick={() => scrollToSection('contato')}>
-              <span>Contato</span>
-            </li>
+        <nav className={`menu ${menuAberto ? 'menu-aberto' : ''}`} aria-label="Seções do site">
+          <ul>
+            {LINKS.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} onClick={() => setMenuAberto(false)}>{link.texto}</a>
+              </li>
+            ))}
           </ul>
-
-          <div className="header-contact">
-            <a href="https://wa.me/553497249781" target="_blank" rel="noopener noreferrer" title="WhatsApp">
-              <FaWhatsapp />
-            </a>
-            <a href="mailto:baycontassessoria@gmail.com" title="Email">
-              <FaEnvelope />
-            </a>
-            <a href="https://www.instagram.com/baycontassessoria?igsh=NzRxNWtnOXltdXBv" target="_blank" rel="noopener noreferrer" title="Instagram">
-              <FaInstagram />
-            </a>
+          <div className="menu-icones">
+            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
+            <a href={`mailto:${EMAIL}`} aria-label="E-mail"><FaEnvelope /></a>
+            <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
           </div>
-
-          <a 
-            href="https://www.sciweb.com.br" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn-area-cliente"
-          >
+          <a href={AREA_DO_CLIENTE} target="_blank" rel="noopener noreferrer" className="botao botao-principal botao-pequeno">
             Área do Cliente
           </a>
         </nav>
