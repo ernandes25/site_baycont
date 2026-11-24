@@ -54,7 +54,7 @@ const Contato = () => {
             </div>
             <div className="canal">
               <span className="icone-caixa"><FaClock /></span>
-              <span><small>Horário de atendimento</small><strong>Segunda a sexta, das 8h às 18h · Sábado, das 8h às 12h</strong></span>
+              <span><small>Horário de atendimento</small><strong>Segunda a sexta, das 8h15 às 12h e das 13h30 às 18h</strong></span>
             </div>
           </div>
 
