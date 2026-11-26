@@ -80,7 +80,7 @@ h1, h2, h3, h4 { color: var(--marinho); line-height: 1.2; letter-spacing: -0.01e
 .marca small { display: block; color: var(--texto-suave); font-size: .72rem; font-weight: 500; }
 .menu { display: flex; align-items: center; gap: 22px; }
 .menu ul { display: flex; gap: 22px; }
-.menu ul a { color: var(--texto); font-size: .95rem; font-weight: 500; }
+.menu ul a { color: var(--texto); font-size: .95rem; font-weight: 500; white-space: nowrap; }
 .menu ul a:hover { color: var(--azul); }
 .menu-icones { display: flex; gap: 12px; color: var(--marinho); font-size: 1.1rem; }
 .menu-icones a:hover { color: var(--azul); }
@@ -199,9 +199,8 @@ a.canal-destaque:hover { border-color: var(--azul); background: var(--azul); }
   .menu-icones { display: none; }
 }
 
-/* Celular: menu vira lista que abre pelo botão */
-@media (max-width: 860px) {
-  .secao { padding: 64px 0; }
+/* Menu vira lista que abre pelo botão (antes de os itens quebrarem em duas linhas) */
+@media (max-width: 980px) {
   .menu-botao { display: block; }
   .menu {
     position: absolute; top: 72px; left: 0; right: 0; display: none;
@@ -212,6 +211,11 @@ a.canal-destaque:hover { border-color: var(--azul); background: var(--azul); }
   .menu ul { flex-direction: column; gap: 0; }
   .menu ul a { display: block; padding: 12px 0; border-bottom: 1px solid var(--linha); }
   .menu-icones { display: flex; justify-content: center; font-size: 1.3rem; gap: 26px; padding: 6px 0; }
+}
+
+/* Celular */
+@media (max-width: 860px) {
+  .secao { padding: 64px 0; }
   .abertura { padding: 44px 0 64px; }
   .abertura-grade, .quem-grade, .contato-grade { grid-template-columns: 1fr; gap: 32px; }
   .faixa-chamada { padding: 26px 22px; }

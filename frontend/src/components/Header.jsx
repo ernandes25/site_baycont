@@ -7,10 +7,11 @@ const LINKS = [
   { href: '#servicos', texto: 'Serviços' },
   { href: '#diferenciais', texto: 'Diferenciais' },
   { href: '#links-uteis', texto: 'Links úteis' },
+  { href: '#noticias', texto: 'Notícias', soComNoticias: true },
   { href: '#contato', texto: 'Contato' },
 ]
 
-const Header = () => {
+const Header = ({ temNoticias = false }) => {
   const [rolou, setRolou] = useState(false)
   const [menuAberto, setMenuAberto] = useState(false)
 
@@ -42,7 +43,7 @@ const Header = () => {
 
         <nav className={`menu ${menuAberto ? 'menu-aberto' : ''}`} aria-label="Seções do site">
           <ul>
-            {LINKS.map((link) => (
+            {LINKS.filter((link) => temNoticias || !link.soComNoticias).map((link) => (
               <li key={link.href}>
                 <a href={link.href} onClick={() => setMenuAberto(false)}>{link.texto}</a>
               </li>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 
 // As notícias vêm prontas do arquivo /noticias.json, que o Sistema Bay atualiza sozinho duas vezes por dia
-// (manchetes da Receita Federal e da Agência Brasil). Sem o arquivo, ou sem notícias, a seção não aparece.
+// (manchetes da Receita Federal e da Agência Brasil). Sem o arquivo, ou sem notícias, a seção e o item do menu não aparecem.
 const ARQUIVO = '/noticias.json'
 
 const dataBrasileira = (iso) => {
@@ -12,7 +12,8 @@ const dataBrasileira = (iso) => {
 
 const linkSeguro = (link) => typeof link === 'string' && /^https?:\/\//i.test(link)
 
-const Noticias = () => {
+// Lê as notícias uma vez (o App passa a lista para a seção e avisa o menu se há notícias).
+export const useNoticias = () => {
   const [noticias, setNoticias] = useState([])
 
   useEffect(() => {
@@ -23,10 +24,14 @@ const Noticias = () => {
         const lista = Array.isArray(dados?.noticias) ? dados.noticias : []
         if (ativo) setNoticias(lista.filter((n) => n && n.titulo && linkSeguro(n.link)))
       })
-      .catch(() => {}) // sem notícias, a seção simplesmente não aparece
+      .catch(() => {}) // sem notícias, a seção e o item do menu simplesmente não aparecem
     return () => { ativo = false }
   }, [])
 
+  return noticias
+}
+
+const Noticias = ({ noticias }) => {
   if (noticias.length === 0) return null
 
   return (
