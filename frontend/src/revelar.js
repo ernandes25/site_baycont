@@ -12,8 +12,8 @@ const REGRAS = [
   ['.contato-grade > .formulario', 'direita'],
   ['.noticias-aviso', 'cima'],
 ]
-const PASSO = 110       // ms entre um item e o próximo da mesma linha
-const DURACAO = 750     // ms da animação (igual ao CSS)
+const PASSO = 200       // ms entre um item e o próximo da mesma linha
+const DURACAO = 1200    // ms da animação (igual ao CSS)
 
 const colunasDa = (grade) => {
   const colunas = getComputedStyle(grade).gridTemplateColumns
@@ -39,7 +39,8 @@ export const useRevelar = (chave) => {
           target.style.removeProperty('--atraso')
         }, atraso + DURACAO + 100)
       })
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    }, // Só começa quando o bloco já passou do pé da tela (a última quinta parte não conta), para dar tempo de ver.
+    { threshold: 0.15, rootMargin: '0px 0px -20% 0px' })
 
     REGRAS.forEach(([seletor, direcao]) => {
       document.querySelectorAll(seletor).forEach((bloco) => {
