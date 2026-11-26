@@ -5,6 +5,7 @@ import QuemSomos from './components/QuemSomos'
 import Servicos from './components/Servicos'
 import Diferenciais from './components/Diferenciais'
 import LinksUteis from './components/LinksUteis'
+import Noticias from './components/Noticias'
 import Contato from './components/Contato'
 import Footer from './components/Footer'
 
@@ -18,6 +19,7 @@ function App() {
         <Servicos />
         <Diferenciais />
         <LinksUteis />
+        <Noticias />
         <Contato />
       </main>
       <Footer />

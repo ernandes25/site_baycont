@@ -140,6 +140,17 @@ h1, h2, h3, h4 { color: var(--marinho); line-height: 1.2; letter-spacing: -0.01e
 .cartao-link-texto small { display: block; color: var(--texto-suave); font-size: .82rem; line-height: 1.4; }
 .cartao-link-seta { flex: none; color: var(--texto-suave); font-size: .8rem; }
 
+/* Notícias (a seção some quando não há notícias; aí o Contato volta a ser branco, logo depois dos Links úteis) */
+.cartao-noticia { display: flex; flex-direction: column; gap: 10px; padding: 22px; transition: border-color .2s, transform .2s; }
+.cartao-noticia:hover { border-color: var(--azul); transform: translateY(-2px); }
+.noticia-fonte { color: var(--azul); font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.cartao-noticia h3 { font-size: 1.02rem; line-height: 1.35; }
+.cartao-noticia p { flex: 1; color: var(--texto-suave); font-size: .9rem; line-height: 1.5; }
+.noticia-ler { display: inline-flex; align-items: center; gap: 6px; color: var(--marinho); font-size: .88rem; font-weight: 600; }
+.noticia-ler svg { font-size: .72rem; }
+.noticias-aviso { margin-top: 28px; text-align: center; color: var(--texto-suave); font-size: .82rem; }
+#noticias + #contato { background: var(--fundo-claro); }
+
 /* Contato */
 .contato-grade { display: grid; grid-template-columns: 1fr 1.1fr; gap: 28px; align-items: start; }
 .contato-canais { display: grid; gap: 12px; }
