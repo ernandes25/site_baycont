@@ -6,11 +6,13 @@ import Servicos from './components/Servicos'
 import Diferenciais from './components/Diferenciais'
 import LinksUteis from './components/LinksUteis'
 import Noticias, { useNoticias } from './components/Noticias'
+import { useRevelar } from './revelar'
 import Contato from './components/Contato'
 import Footer from './components/Footer'
 
 function App() {
   const noticias = useNoticias()
+  useRevelar(noticias.length)  // as notícias chegam depois: os cartões delas também animam
 
   return (
     <>
